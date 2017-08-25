@@ -16,6 +16,7 @@ const styles = {
   },
 };
 
+const imagePrefix = 'https://static01.nyt.com/';
 /**
  * A simple example of a scrollable `GridList` containing a [Subheader](/#/components/subheader).
  */
@@ -25,13 +26,13 @@ const ArticalList = (props) => (
       cellHeight={180}
       style={styles.gridList}
     >
-      {props.articles.map((article) => (
-        <a href={article.link} target="_blank" key={article.img}>
+      {props.articles.map((article, i) => (
+        <a href={article.link} target="_blank" key={i}>
           <GridTile
             title={article.title}
             subtitle={<span>by <b>{article.author}</b></span>}
           >
-            <img src={article.img} />
+            <img src={article.img && imagePrefix + article.img} />
           </GridTile>
         </a>
       ))}
